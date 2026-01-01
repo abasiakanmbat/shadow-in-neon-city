@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadows in Neon City</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        background-color: #050505;
+        color: #e0e0e0;
+        font-family: 'Courier Prime', monospace;
+      }
+      .font-neon {
+        font-family: 'Orbitron', sans-serif;
+      }
+      .neon-text-blue {
+        text-shadow: 0 0 5px #00f3ff, 0 0 10px #00f3ff;
+      }
+      .neon-border-blue {
+        box-shadow: 0 0 5px #00f3ff, inset 0 0 5px #00f3ff;
+        border: 1px solid #00f3ff;
+      }
+      .scanline {
+        width: 100%;
+        height: 100px;
+        z-index: 9999;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0.1;
+        position: absolute;
+        bottom: 100%;
+        animation: scanline 10s linear infinite;
+      }
+      @keyframes scanline {
+        0% { bottom: 100%; }
+        100% { bottom: -100px; }
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #00f3ff;
+      }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <div class="scanline pointer-events-none"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

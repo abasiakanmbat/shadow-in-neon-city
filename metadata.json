@@ -1,0 +1,8 @@
+
+{
+  "name": "Shadows in Neon City",
+  "description": "A noir detective thriller where every choice matters. Navigate the gritty streets of Neon City, solve a high-stakes murder, and manage your reputation as a top PI.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
