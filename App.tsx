@@ -104,13 +104,13 @@ const App: React.FC = () => {
           Reset Case
         </button>
       </div>
-            {/* <video src={currentScene.imageUrl} autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover"></video> */}
+            <video src={currentScene.imageUrl} autoPlay loop muted className="max-md:hidden absolute top-0 left-0 w-full h-full object-cover"></video>
       {/* Main Game Area */}
       <main className="flex-1 max-w-4xl mx-auto w-full p-4 md:p-8 flex flex-col gap-6">
 
         {/* Cinematic Visual (Placeholder) */}
         {currentScene.imageUrl && (
-          <div className="w-full aspect-video rounded border border-[#00f3ff]/20 overflow-hidden relative group">
+          <div className="md:hidden w-full aspect-video rounded border border-[#00f3ff]/20 overflow-hidden relative group">
             <video
               src={currentScene.imageUrl}
               autoPlay
@@ -118,7 +118,7 @@ const App: React.FC = () => {
               loop
               playsInline
               controls
-              className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 transition-all duration-1000"
+              className="w-full h-full object-cover  opacity-60 group-hover:grayscale-0 transition-all duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
           </div>
