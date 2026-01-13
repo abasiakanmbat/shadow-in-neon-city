@@ -78,7 +78,14 @@ const App: React.FC = () => {
     const { stat, value } = choice.requirement;
     return gameState.stats[stat] >= value;
   };
+  // on first user interaction (click), unmute
+  document.addEventListener("click", () => {
+    const vid = document.getElementById("videoId") as HTMLVideoElement | null;
 
+    if (!vid) return;
+    vid.muted = false;
+    vid.play();
+  }, { once: true });
   return (
     <div className="min-h-screen bg-[#050505] text-gray-300 flex flex-col relative overflow-hidden">
       {/* HUD - Stats Bar */}
@@ -104,7 +111,7 @@ const App: React.FC = () => {
           Reset Case
         </button>
       </div>
-            <video src={currentScene.imageUrl} autoPlay loop muted className="max-md:hidden absolute top-0 left-0 w-full h-full object-cover"></video>
+      <video id='videoId' src={currentScene.imageUrl} autoPlay muted className="max-md:hidden absolute top-0 left-0 w-full h-full object-cover"></video>
       {/* Main Game Area */}
       <main className="flex-1 max-w-4xl mx-auto w-full p-4 md:p-8 flex flex-col gap-6">
 
@@ -112,10 +119,11 @@ const App: React.FC = () => {
         {currentScene.imageUrl && (
           <div className="md:hidden w-full aspect-video rounded border border-[#00f3ff]/20 overflow-hidden relative group">
             <video
+              id='videoId'
               src={currentScene.imageUrl}
               autoPlay
               muted
-              loop
+
               playsInline
               controls
               className="w-full h-full object-cover  opacity-60 group-hover:grayscale-0 transition-all duration-1000"
